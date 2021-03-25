@@ -20,7 +20,7 @@ let pets = [
         peso: 28,
         tutor: 'Neck',
         contato: '+55 81 9xxxx-xxxx',
-        vacinado: true,
+        vacinado: false,
         servico:['banho', 'tosa']
     },
     {
@@ -36,12 +36,44 @@ let pets = [
     }
 ];
 
-const listarPets = () => { // => arrowfucntion retira a necessidade de colocar a palavra "function" e deixa o codigo mais limpo
-    for(let i = 0; i < pets.length; i++){
-        console.log(pets[i].nome);
+const exibirPet = (pet) => {
+    console.log(`Nome: ${pet.nome}
+    Idade: ${pet.idade}
+    Tipo: ${pet.tipo}
+    Raca: ${pet.raca}
+    Vacinado: ${pet.vacinado}`)
+}
+const listarPets = () => {
+   
+    for(let pet of pets){
+        exibirPet(pet)
     }
 }
 
-listarPets();
+const vacinarPet = (pet) => {
+    
+    if(pet.vacinado == false){
+        pet.vacinado = true
+        exibirPet(pet)
+        return 1
+    }
+}
+
+const campanhaVacinacao = (pet) => {
+    let vacinados = 0
+    for (pet of pets){
+        vacinados += vacinarPet(pet)
+    }
+    console.log(vacinados)
+}
+
+
+
+
+//listarPets();
+//vacinarPet(pets[2])
+campanhaVacinacao()
+
+//listarPets();
 
 //console.log(Pets);
