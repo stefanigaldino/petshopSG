@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 const nomePetshop = "PETSHOP GS";
 
 let pets = [
@@ -43,31 +45,63 @@ const exibirPet = (pet) => {
     Raca: ${pet.raca}
     Vacinado: ${pet.vacinado}`)
 }
-/*const listarPets = () => {
-   
-    for(let pet of pets){
+const listarPets = () =>
+{   
+    for(let pet of pets)
+    {
         exibirPet(pet)
     }
 }
 
-const vacinarPets = (pet) => {
-    
-    if(pet.vacinado == false){
+const vacinarPets = (pet) =>
+{
+    if(pet.vacinado == false)
+    {
         pet.vacinado = true
         exibirPet(pet)
         return 1
     }
-}*/
-const adicionarPet = (nome,tipo,idade,raca, peso, tutor, vacinado) => {
-    let pet = {
-        nome: nome,
-        tipo: tipo,
-        idade: idade,
-        raca: raca,
-        peso: peso,
-        tutor: tutor,
-        vacinado : vacinado,
-        servicos: []
-    }
-    pets.push (pet)
 }
+
+const darBanhoPet = (pet) =>
+    {
+    let dataHoje = moment().format('DD-MM-YYYY')
+    pet.servicos.push(
+        {'Serviço': "Banho ", Data: dataHoje})
+    }
+
+const tosarPet = (pet) =>
+    {
+    let dataHoje = moment().format('DD-MM-YYYY')
+    pet.servicos.push({'Serviço': "Tosa ", Data: dataHoje})
+    }
+
+const apararUnhasPet = (pet) => 
+    {
+    let dataHoje = moment().format('DD-MM-YYYY')
+    pet.servicos.push({'Serviço': "Aparou unhas ", Data: dataHoje})
+    }
+
+
+const adocionarNovoPet = (nome, tipo, idade, raca, peso, tutor, vacinado) =>
+    {
+        let pet = 
+        {
+            nome: nome,
+            tipo: tipo,
+            idade: idade,
+            raca: raca,
+            peso: peso,
+            tutor: tutor,
+            vacinado: vacinado,
+            servicos: []
+        }
+pets.push(pet)
+    }
+
+adocionarNovoPet("Hunter", "gato", 3, "siames", 2, "Alice", true)
+darBanhoPet(pets[3])
+tosarPet(pets[3])
+apararUnhasPet(pets[3])
+console.log(pets)
+
