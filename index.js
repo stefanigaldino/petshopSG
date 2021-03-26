@@ -43,37 +43,31 @@ const exibirPet = (pet) => {
     Raca: ${pet.raca}
     Vacinado: ${pet.vacinado}`)
 }
-const listarPets = () => {
+/*const listarPets = () => {
    
     for(let pet of pets){
         exibirPet(pet)
     }
 }
 
-const vacinarPet = (pet) => {
+const vacinarPets = (pet) => {
     
     if(pet.vacinado == false){
         pet.vacinado = true
         exibirPet(pet)
         return 1
     }
-}
-
-const campanhaVacinacao = (pet) => {
-    let vacinados = 0
-    for (pet of pets){
-        vacinados += vacinarPet(pet)
+}*/
+const adicionarPet = (nome,tipo,idade,raca, peso, tutor, vacinado) => {
+    let pet = {
+        nome: nome,
+        tipo: tipo,
+        idade: idade,
+        raca: raca,
+        peso: peso,
+        tutor: tutor,
+        vacinado : vacinado,
+        servicos: []
     }
-    console.log(vacinados)
+    pets.push (pet)
 }
-
-
-
-
-//listarPets();
-//vacinarPet(pets[2])
-campanhaVacinacao()
-
-//listarPets();
-
-//console.log(Pets);
